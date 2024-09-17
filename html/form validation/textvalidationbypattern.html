@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Validation using a regular expression(regex) pattern</title>
+    <script>
+        function validate(){
+            var regex= /^[A-Za-z]+$/;  //this is how we define a regex starting with '/' and ending with '/';
+            //'^' represents that the input shld start with only the alphabets that we gave within the square brackets;
+            //'$' represents that the input shld only end with the alphabets that we gave within the square brackets;
+            //'+' represents that the input should have atleast one of the alphabets(either A-Z or a-z); min one max any number; this '+' will make sure that the input cannot be empty.
+            //'*' represents that the input shld have 0 to many alphabets; we will use this when the input is not mandatory bcoz it will accept even if we dont give any input;
+            var uname=document.registerform.uname.value;
+            var result=regex.test(uname); //this will return true if the uname satisfies the regex pattern
+            if(result){
+                alert("Validation Successfull");
+                return true;
+            }else{
+                alert("Validation Failed");
+                document.registerform.uname.focus();
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    User Registration:
+    <form name="registerform" action="success.jsp" onsubmit="return validate()">
+        Enter username: <input type="text" name="uname" />
+        <input type="submit" value="Submit" />
+    </form>
+</body>
+</html>

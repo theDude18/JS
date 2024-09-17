@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Object using Singleton</title>
+    <script>
+        //singleton obj wil be created only once no matter how many times it is called or instantiated;
+        var blogPost= new function(){
+            this.title="JS",
+            this.text="It is cool",
+            this.displayBlogPost=function(){
+                document.write(this.title+"<br/>");
+                document.write(this.text);
+            }
+        }
+
+        blogPost.displayBlogPost();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

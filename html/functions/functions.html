@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+</head>
+<body>
+    <script>
+        function display(){
+            document.write("Displaying from the function"+"<br/>");
+        }
+
+        display();
+
+        function multiply(x,y){  //dont need to mention datatypes of x and y as variables are untyped in JS
+            document.write(x*y);
+        }
+
+        multiply(2,5);
+
+        document.write("<br/>");
+
+        function add(a,b){  //function with arguments and return type
+            return a+b;
+        }
+        
+        var result=add(3,4);
+        document.write(result+"<br/>"); //assigning it to a variable and then printing
+        document.write("Result is "+add(3,6)); //directly printing the returning value
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Nodes creation and removal</title>
+    <script>
+        function handleChildCreate(){
+            var parent=document.getElementById("div1");
+            //Creating a new paragraph element in HTMl dynamically from JS
+            var child=document.createElement("p");  //p refers to paragraph tag; its an inbuilt argument
+            var text=document.createTextNode("Im the new created paragraph"); //this text node is to give inside the child element 'p'
+
+            child.appendChild(text); //this will append the text node content inside created child element 'p'
+            parent.appendChild(child); //this will append created child node in parent node
+        }
+
+        function handleChildRemove(){
+        var parent=document.getElementById("div1");
+        //var child=document.getElementById("p2");
+        var child=parent.lastElementChild;  //parent.lastElementChild gives the last created child in the parent
+        parent.removeChild(child); //parent is var we declared; removeChild is inbuilt method
+        }
+    </script>
+</head>
+<body>
+    <div id="div1"> <!--parent node-->
+        <p id="p1">Paragraph 1</p> <!--child node-->
+        <p id="p2">Paragraph 2</p> <!--child node-->
+        <input type="button" value="create" onclick="handleChildCreate()" />
+        <input type="button" value="remove" onclick="handleChildRemove()" />
+    </div>
+</body>
+</html>
