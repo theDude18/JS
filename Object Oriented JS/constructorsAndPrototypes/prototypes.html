@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototypes Basic Understanding</title>
+    <script>
+        var player={
+            name:"Kohli"
+        };
+
+        console.log("name" in player);
+        console.log(player.hasOwnProperty("name")); //hasOwnProperty checks if the "name" property is originally created in player or inherited property
+        console.log("hasOwnProperty" in player);  //return true as 'in' operator just checks if hasOwnProperty is there in player or not(it wont check if hasOwnProperty is originally created in player or not)
+        console.log(player.hasOwnProperty("hasOwnProperty")); //return false as hasOwnProperty is inherited from generic inbuilt obj 'Object'
+
+        console.log(Object.hasOwnProperty("hasOwnProperty")); //return false
+        console.log(Object.prototype.hasOwnProperty("hasOwnProperty")); //return true as hasOwnProperty is created in Object with prototype;
+
+        //Note: Since Object has defined 'hasOwnProperty' with prototype(Object.prototype.hasOwnProperty()), every custom obj we create will inherit the hasOwnProperty() function;
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

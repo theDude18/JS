@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+    <script>
+        //Map is storing datas as key and value
+        let marks=new Map();
+        marks.set("Tamil",95);  //syntax for storing data, set(key,value)
+        marks.set("English",90);
+        marks.set("Maths",100);
+
+        console.log(marks.get("Tamil"));  //syntax for retrieving the value
+        console.log(marks.get("English"));
+        console.log(marks.get("Maths"));
+
+        console.log(marks.size);            //returns the size of map
+        console.log(marks.has("Tamil"));    //to check if the property exists in map
+        marks.delete("Tamil")       //delete(): to delete a particular property
+        console.log(marks.get("Tamil"));   //returns undefined as the key 'Tamil' is deleted.
+
+        marks.clear();     //clear() : to delete entire map
+        console.log(marks.get("Tamil"));  //returns undefined as the entire map is cleared
+        console.log(marks.get("English"));
+        console.log(marks.get("Maths"));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

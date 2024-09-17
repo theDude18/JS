@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating Reference type(Object) using Literal Form</title>
+    <script>
+        //Creating a object using new keyword
+        var obj1=new Object();
+        obj1.name="Anbu";
+        obj1.age=25;
+        //Creating a object using literal form
+        var obj2={
+            "name": "Senthil",    //In literal form, we create and assign properties in the form key and value; key shld always be string and value can be any DT.  
+            "age": 45
+        }
+        //displaying both the objects
+        document.write(obj1.name+" "+obj1.age+"<br/>");
+        document.write(obj2.name+" "+obj2.age+"<br/>");
+
+        //Creating an array using new keyword
+        var arr1=new Array(18,"Karthi",7.1);
+        //Creating an array using literal form
+        var arr2=[18,"Karthi",7.1];
+        //displaying both arrays
+        document.write(arr1+"<br/>");
+        document.write(arr2+"<br/>");
+
+        //Creating function using new keyword
+        var myFunction1=new Function("name","return 'Hello '+name"); //1st argument is for passing argument(constructor)(refer myFunction2()); 2nd argument is the body of the function; this is the least used or worst way of defining function
+        document.write(myFunction1("Karthi")+"<br/>");
+        //Creating function using literal form
+        function myFunction2(name){
+            return "Hello "+name;
+        }
+        document.write(myFunction2("Velu")+"<br/>");
+
+        //Creating RegEx in literal form
+        var regEx=/\d+/; // \d means digits(0-9); '+' means it should have atleast one or more digits 
+        var age="18";
+        document.write(regEx.test(age)+"<br/>");
+
+        //To find out reference type 
+        document.write((obj2 instanceof Object)+"<br/>"); //instanceOf will check the obj2 with Object(on the right of instanceOf) if it matches the reference type and returns true or false
+        document.write((arr2 instanceof Array)+"<br/>");  
+        document.write((myFunction2 instanceof Function)+"<br/>");
+        document.write((arr2 instanceof Object)+"<br/>"); //Object is the parent reference type to all other ref type. So if u check any ref type with Object, it will be true.
+        document.write((obj2 instanceof Function)+"<br/>"); //this will return false bcoz obj2 is a Object Reference type and not a Function ref type
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

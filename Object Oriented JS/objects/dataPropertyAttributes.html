@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Property Attributes</title>
+    <script>
+        //In object property attributes, we just saw the two common attributes of both data and accessor properties
+        //Here we will see the 2 other attributes - value and writable
+        //value - used to assign a value to a property; 
+        //writable - makes the property only readable
+
+        var player = {};  //defining object without any properties
+
+        Object.defineProperty(player, "name", {     //this will check if there is a property named 'name' present in obj player; if not then it will create;
+            value: "Rohit",      //this attribute will assign the value to 'name'
+            enumerable: "true",
+            configurable: "true",
+            writable: "true"     //this will allow us to change the value of property 'name'
+        });
+        //when u define value attribute, u shld also mention & define all 3 other attributes and mention them as 'true', bcoz JS by default will consider the boolean values as false;
+        //Generally enumerable and configurable attributes will be true by default but when we give value attribute alone in defineProperty(), it will internally declare other 3 attributes and by default assign them 'false' since we are not initializing it;
+
+        document.write(player.name);
+
+        //Note: configurable is different and writable is different. If configurable is false, we cannot delete the obj and we cannot redefine the same obj again using defineProperty(), but we can modify the property values of the obj; If writable is false, we can't modify the property value;
+        //Example for configurable:
+
+     /* var student = {
+            name: "Alice"
+        };
+
+        Object.defineProperty(student, "name", {
+            configurable: false
+        });
+
+        // You can still change the value of the name property
+        student.name = "Bob";
+
+        console.log(student.name); // Output: "Bob"
+
+        // But you cannot delete or redefine the property
+        delete student.name; // No error, but the property still exists
+        console.log("name" in student); // Output: true
+
+        // Attempting to redefine the property will throw an error
+        Object.defineProperty(student, "name", { value: "Charlie" }); // Error: Cannot redefine property: name
+        */
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

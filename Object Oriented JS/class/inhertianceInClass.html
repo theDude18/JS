@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inheritance in Class</title>
+    <script>
+        //In this file, we have seen inheritance and also encapsulation
+
+        class BMW{
+            constructor(rpm,torque){
+                this.rpm=rpm;
+                this.torque=torque;
+            }
+            carDetails(){
+                return this.rpm+" "+this.torque;
+            }
+        }
+
+        //const s=new BMW(50000,10000);
+        //document.write(s.carDetails());
+
+        class ThreeSeries extends BMW{
+            #name;   //syntax for declaring private variable inside class; this is like using IIFE; this update is a recent one in JS came after 2020
+            constructor(name,rpm,torque){
+                super(rpm,torque);  
+                this.#name=name;           
+            }
+            carDetails(){
+                return super.carDetails()+" "+this.#name;
+            }
+            getName(){   //only through get function, we can access this private variable
+                return this.#name;
+            }
+            setName(name){  //only through set method we can modify the #name
+                this.#name=name;
+            }
+        }
+
+        const t=new ThreeSeries("3GS",50000,10000);
+        document.write(t.carDetails()+"<br/>");
+        t.setName("3 Series GS");
+        document.write(t.getName()+"<br/>");
+        document.write(t.carDetails()+"<br/>");
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

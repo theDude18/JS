@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating Class</title>
+    <script>
+        //It will do the same function as of objects in JS but class will be more structured and readable than plain object in JS
+        class Pizza{
+            constructor(type,size){    //constructor is a default function in class to initialize the variables
+                this.type=type;
+                this.size=size;
+                //this.crust;  //You can just declare the variables here and not initialize it
+                this.toppings= [];  //array variable
+            }
+            getCrust(){
+                return this.crust;
+            }
+            setCrust(crust){
+                this.crust=crust;
+            }
+            getToppings(){
+                return toppings;
+            }
+            setToppings(topping){
+                this.toppings.push(topping);  //adding the values in toppings array
+            }
+            bake(){
+                document.write(`Baking is in progress for ${this.size} ${this.type} ${this.crust} 
+                pizza with toppings ${this.toppings}`);   //'this' keyword is very important; whenever u access or use the variable, always use 'this' keyword
+            }
+        }
+
+        const pizza1=new Pizza("spicy","small");
+        pizza1.setCrust("thin");
+        pizza1.setToppings("Pepper");
+        pizza1.setToppings("Chilli");
+        pizza1.bake();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
