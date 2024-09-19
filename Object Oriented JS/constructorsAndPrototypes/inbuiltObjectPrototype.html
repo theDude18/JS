@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inbuilt Object Prototype</title>
+    <script>
+        //Using prototype, we can create new properties for inbuilt Objects also
+
+        //Creating display() function for inbuilt obj String
+        String.prototype.display=function(){
+            document.write("Displaying the newly created inbuilt display function");
+        };
+
+        "Karthi".display();  //"Karthi" is a string and since we added a function display() in String prototype, we can access it;
+        //Note: Using prototype on inbuilt obj and creating new properties is not a good practice
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

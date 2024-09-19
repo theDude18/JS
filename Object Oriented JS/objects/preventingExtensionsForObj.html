@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preventing Extensions for obj</title>
+    <script>
+        //Till now we saw Object.defineProperty() for managing property attributes;
+        //Now we will see how to manage the object itself (i.e)How can we restrict the object so that no new properties or functions can be added further in a obj
+        //We can prevent the extensions using 3 methods, 1. preventExtensions() 2. seal() 3. freeze()
+
+        //Using preventExtensions() - we can't add new data properties and functions
+        var player={
+            "name":"Jadeja"
+        };
+
+        document.write("name" in player);  //dont use +"<br/>" after using 'in' operator; It is causing error;
+        document.write("<br/>");
+        document.write(Object.isExtensible(player)+"<br/>");   //checking the extensibility status of obj player
+        Object.preventExtensions(player);         //prevents the extension of obj player
+        document.write(Object.isExtensible(player)+"<br/>");
+
+        player.age=33;
+        document.write("age" in player);   //this will return false as property age will not be added as we made obj player as Non-Extensible;
+    
+        //Using seal() - we can't add new data properties and functions and also we cant delete or redefine the existing properties(configurable attribute becomes false for all properties)
+        var student={
+            name:"Prem"
+        };
+        console.log("Seal()");
+        console.log(Object.isExtensible(student));
+        console.log(Object.isSealed(student));    //to check if the obj is sealed or not
+        Object.seal(student);    //method to seal a obj
+        console.log(Object.isSealed(student));
+        console.log(Object.isExtensible(student));
+
+        delete student.name;
+        console.log("name" in student); //will return true as name will not be deleted as the obj student is sealed;
+
+        var descriptor=Object.getOwnPropertyDescriptor(student,"name");
+        console.log(descriptor.configurable);
+
+        //Using freeze() - can't add new data properties and functions and configurable and writable attribute will become false for all the properties.
+        var teacher={
+            name:"Muthukumar"
+        };
+        console.log("Freeze()");
+        console.log(Object.isExtensible(teacher));
+        console.log(Object.isFrozen(teacher));
+        Object.freeze(teacher);
+        console.log(Object.isFrozen(teacher));
+        console.log(Object.isExtensible(teacher));
+
+        delete student.name;
+        console.log("name" in teacher); //will return true as name will not be deleted as the obj teacher is freezed;
+
+        var descriptor=Object.getOwnPropertyDescriptor(teacher,"name");
+        console.log(descriptor.configurable);
+        console.log(descriptor.writable);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise</title>
+    <script>
+        //Promises in JS is to achieve asynchronous programming
+        /*syntax: const promise=new Promise((resolve,reject)=>{                                //Promise() has a constructor, where we have to pass a function and inside that function, we have to give the asynchrounous code
+                    console.log("Inside Promise(This is the Asynchronous code");
+                    resolve();                                                                 //resolve() refers that the promise is created and done
+                    });                 
+        */
+
+        //Creating promise; Typically promise will be created inside functions;
+        function myAsyncFunc(){
+        const promise=new Promise((resolve,reject)=>{
+            setTimeout(()=>{console.log("Inside Promise(Asynchronous code)") //setTimeout(arrowfunction which has asynchronous code,time delay in milli sec); Here we are setting the time(1 second) delay for the arrowfunction in parameter1 to execute; setting timedelay is optional;
+                            let error=false;
+                            if(error)   //depending on this condition either resolve() or reject() gets executed.
+                                reject("Failed due to Error");    //reject() will pass this text("Failed due to Error") to catch() function's arrow function parameter
+                            else
+                                resolve("Successful");            //resolve() will pass the text to then() function's arrow function parameter
+                            }                                     //parameter1 is ended here
+                            ,1000);   //the code inside the arrow function will get executed after 1 sec(1000ms = 1 sec)
+            
+        });                     // new Promise(); ends here
+        return promise;
+        };                      //myAsyncFunc() ends here.
+
+        //Executing the promise using then() and catch()
+        //then() function gets executed when the resolve() in promise gets executed
+        //catch() function gets executed when the reject() in promise gets executed
+        myAsyncFunc().then(
+            (success)=>console.log(success)     //single line arrow function; then(()=>); success passed inside then() function's arrow function (success)=>, is a parameter in which the text given inside resolve() will get passed; success="Failed due to Error" ; This is what we are printing in console.log();
+            //(error)=>console.log(error)
+        ).catch((error)=>console.log(error)).finally(()=>console.log("Inside finally block"));    //single line arrow function; finally() function is optional and it gets executed anyways like in try catch;
+        
+        //Note: Remember this execution of promise as try catch. Here it is then catch.
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

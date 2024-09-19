@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reference DT</title>
+    <script>
+        var obj1=new Object(); //Object() is a inbuilt generic object Reference type through which we can create our custom object; it is one of the way to create custom object
+        var obj2=obj1;
+
+        obj1.name="Marcus Aurelis"; //this is how we create a property called name for obj1; very simple and dynamic.
+        document.write(obj2.name+"<br/>");
+        obj2.name="Aristotle";
+        document.write(obj1.name+"<br/>");
+        document.write(obj2.name+"<br/>");
+
+        obj1=null; //we need to make the obj instances null at the end of the program, so that the garbage collector will clear the memory of Object().
+        obj2=null;
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

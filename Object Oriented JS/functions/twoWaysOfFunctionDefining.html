@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Declaration and Expression way of defining functions</title>
+    <script>
+        //Declaration way
+        function oddOrEven(num){
+            if(num%2==0){
+                return "even";
+            }else{
+                return "odd";
+            }
+        }
+        document.write(oddOrEven(5)+"<br/>");
+
+        var func1=oddOrEven; //assigning function to a variable; this is possible bcoz function is basically a object in JS.
+        //Internally what happens when u create a function is, it will create like 'var oddOrEven=new Function(argument of function,body of function);'
+        document.write(func1(6)+"<br/>"); //calling the oddOrEven function using the variable to which the function was assigned
+
+        //Expression Way or Anonymous way
+        var oddOrEven= function(num){
+            if(num%2==0){
+                return "even";
+            }else{
+                return "odd";
+            }
+        };   //we need to give semicolon while defining a function in expression form
+        document.write(oddOrEven(4));
+    </script>
+</head>
+<body>
+</body>
+</html>

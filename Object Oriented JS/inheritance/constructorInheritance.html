@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructor Inheritance</title>
+    <script>
+        //Parent constructor
+        function PlayerTemplate(name,age){
+            this.name=name,
+            this.age=age  
+        };
+
+        PlayerTemplate.prototype.display=function(){
+            return this.name+" "+this.age;
+        }
+
+        PlayerTemplate.prototype.toString=function(){  //inbuilt function toString(); whenever u create a obj/constructor function, JS internally extends that obj to generic inbuilt obj 'Object', so that we can access and add new properties to the functions like hasOwnProperty(),toString() etc..
+            document.write("Player name is "+this.name+" and player age is "+this.age+"<br/>");
+        }
+
+        //child constructor
+        function Player1(name,age,game){
+            PlayerTemplate.call(this,name,age);    //to pass the values in parent obj constructor to initialize the values; syntax: call(this,values to pass in PlayerTemplate's constructor); same like super keyword in java;
+            //this.name=name,                      //Refer functionInsideObject.html file to understand call() function;
+            //this.age=age,
+            this.game=game
+        }
+
+        Player1.prototype=new PlayerTemplate();  //Syntax for inheriting Parent constructor function
+        Player1.prototype.constructor=Player1;  //setting constructor property of prototype since Player1 is a constructor function and it is created through literal form
+
+        //Overriding the toString method of PlayerTemplate
+        Player1.prototype.toString=function(){
+            document.write("Player name is "+this.name+" and player age is "+this.age+" and the game is "+this.game+"<br/>");
+        }
+
+        //Proper overriding way(by not repeating the code from Parent object)
+        Player1.prototype.display=function(){
+        return PlayerTemplate.prototype.display.call(this)+" "+this.game; //PlayerTemplate.prototype.display.call(this) is the syntax for calling parent object's function; same like super keyword in java;
+        }
+
+        //creating instance for PlayerTemplate
+        var p=new PlayerTemplate("Jadeja",33);
+        p.toString();
+        document.write(p.display()+"<br/>");
+
+        //creating instance for Player1
+        var p1=new Player1("Karthi",24,"football");
+        document.write(p1.display()+"<br/>");
+        p1.toString();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

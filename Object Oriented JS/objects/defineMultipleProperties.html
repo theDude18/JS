@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object.defineProperties()</title>
+    <script>
+        //defining multiple properties using defineProperties(); name is a data property and age is a accessor property;
+
+        var player={}; //empty object
+
+        //syntax for creating multiple properties
+        Object.defineProperties(player,
+        {
+            name:{
+                value:"Jadeja",
+                enumerable:true,
+                configurable:true,
+                writable:true
+            },
+
+            age:{
+                get:function(){
+                    document.write("Inside get function"+"<br/>");
+                    return this._age;
+                },
+                set:function(value){
+                    document.write("Inside set function"+"<br/>");
+                    this._age=value;
+                },
+                enumerable:true,
+                configurable:true
+            }
+        });
+ 
+        document.write(player.name+"<br/>");
+        player._age=34;
+        document.write(player._age+"<br/>");
+
+        player.name="Sachin";
+        document.write(player.name+"<br/>");
+        player._age="35";
+        document.write(player._age+"<br/>");
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
