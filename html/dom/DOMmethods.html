@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM methods</title>
+</head>
+<body>
+    <nav>
+        <h1>My Page</h1>
+    </nav>
+    <p id="paraID1" class="quote1">All the power is within you</p>
+    <p id="paraID2" class="quote2">Be Still</p>
+    <p id="paraID3" class="quote1">By Swami Vivekananda</p>
+
+    <select id="dropdown" class="dd" onchange="handleOnChangeEventColor(this.value)">  <!-- 'this.value' passes the current selected element's value in the function parameter 'x' in handleOnChangeEventColor(x) in script -->
+        <option value="Select a colour">Select a bg colour</option>
+        <option value="red">Red</option>
+        <option value="blue">Blue</option>
+        <option value="black">Black</option>
+        <option value="black">White</option>
+        <option id="purp" value="black">Purple</option>
+        <option value="black">Orange</option>
+        <option value="black">Green</option>
+    </select>
+
+    <script>
+        //Giving <script> tag inside <head> is not giving the results bcoz <script> tag gets executed before the <body> tag gets executed; So that HTML is not loaded and JS is not able to use the HTML DOM;
+        let quote=document.getElementById("paraID1").innerHTML; //returns the content given inside tag with id named 'paraID1'
+        console.log(quote);
+        
+        //querySelector - Using this method we can fetch elements by usign class, id etc..;
+        //to fetch using class name, syntax is '.classname' and using id, syntax is '#idname'
+        let paraID2=document.querySelector("#paraID2").innerHTML; 
+        console.log(paraID2);
+        
+        //getElementsByClassName fetches all the elements in the class name quote1; This returns elements in the form of HTMLCollection
+        let quoteAndAuthor=document.getElementsByClassName("quote1");
+        console.log(quoteAndAuthor);
+
+        //querySelectorAll also does the same job as getElementsByClassName; Diff is, it returns the elements in the form of NodeList
+        let quoteAndAuthor1=document.querySelectorAll(".quote1");
+        console.log(quoteAndAuthor1);
+
+        //In HTML DOM, we can access the child element using the parent element.
+        let dropdown=document.getElementById("dropdown");   //getting the parent element 'select'
+        let options=dropdown.querySelectorAll("option");    //Using parent element 'select', we are accessing its child elements 'option'
+        console.log(options);
+        //Note: When we want the 'option' tags that are inside the 'select' tag, we fetch like this instead of giving 'document', as, 'document.querySelectorAll("option")' will fetch all the 'option' tags that are present in the code.
+
+        //getElementsbyTagName()
+        let options1=dropdown.getElementsByTagName("option"); //We are not using document to access the elements. We are using parent element 'select' to access the element;
+        console.log(options1);
+
+        //Fetching only the option tags that are in the even numbers in order
+        let evenOptions=dropdown.querySelectorAll("option:nth-of-type(2n)");   //this is the syntax to fetch only the option tags that are present in the even numbers;In 2n, n represents natural numbers starting from 0,1,2...
+        console.log(evenOptions);               //this will print the option tags which has values Red, Black, Purple and Green.             
+
+        //evenOptions will store the elements in a array; evenOptions=[Red,Black,Purple,Green]
+
+        evenOptions[2].style.backgroundColor="purple";  //evenOptions[2] contains Purple's option tag;
+
+        let navText=document.querySelector("nav h1");   //for element itself, you dont have to give '#' or '.'
+        console.log(navText);
+        navText.textContent="DOM Methods";  //Changing the content of nav <h1> tag
+        
+        let navTag=document.querySelector("nav");
+        navTag.innerHTML="<h1>DOM methods</h1>";  //innerHTML chnages the entire thing inside the HTML tag <nav>
+            
+
+
+
+
+
+
+
+
+
+        // let author=document.getElementsByClassName("paraClass")[0];
+        // author=author.innerHTML;
+        // let newPara=document.createElement("p");
+        // let textNode=document.createTextNode(quote); //+" "+author);
+        // newPara.appendChild(textNode);
+        // document.body.appendChild(newPara);
+        // document.getElementById("paraID1").innerHTML="All the power is within you da fella";
+    </script>
+</body>
+</html>

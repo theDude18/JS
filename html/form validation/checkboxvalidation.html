@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkbox validation</title>
+    <script>
+        function validate(){
+            var valid=false;
+            if(document.getElementById("js").checked){
+                valid=true;
+            }else if(document.getElementById("react").checked){
+                valid=true;
+            }else if(document.getElementById("java").checked){
+                valid=true;
+            }else if(document.getElementById("angular").checked){
+                valid=true;
+            }
+
+            if(valid==true){
+                alert("Validated");
+                return true;
+            }else{
+                alert("Please select a technology");
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    Select a technology;
+    <form name="checkboxform" action="success.php" onsubmit="return validate()">
+    <input type="Checkbox" id="js" value="JS">JS</input>
+    <input type="Checkbox" id="react" value="React">React</input>
+    <input type="Checkbox" id="java" value="Java">Java</input>
+    <input type="Checkbox" id="angular" value="Angular">Angular</input>
+    <input type="submit" value="submit"/>
+    </form>
+</body>
+</html>

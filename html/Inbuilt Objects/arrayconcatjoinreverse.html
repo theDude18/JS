@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array concat/join/reverse</title>
+</head>
+<body>
+    <script>
+        var a=[18,7.1,"Karthi",];
+        var b=[7,"Dhoni"];
+        var c=[45,"Rohit"];
+
+        a=a.concat(b,1,8,c); //this will add the given values to the 'a' array
+        document.write(a+"<br/>");
+
+        document.write(a.reverse()+"<br/>"); //this will reverse the array and print
+        document.write(a.join("-")); //this will display the 'a' array with '-' inbetween instead of ','
+    </script>
+</body>
+</html>

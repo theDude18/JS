@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>throw keyword</title>
+    <script>
+        function validateAge(){
+            var age=document.getElementById("age").value;
+            try{
+            if(age==""){
+                throw "Kindly enter the age";
+            }if(age<18){
+                throw "You are not eligible for voting";
+            }
+        }catch(obj){
+            document.getElementById("errormsg").innerHTML=obj;
+        }finally{
+            document.getElementById("finallymsg").innerHTML="Inside finally block";
+        }
+        }
+    </script>
+</head>
+<body>
+        Age:<input type="text" id="age"/>
+        <input type="button" onclick="validateAge()" value="Validate"/>
+        <p id="errormsg"></p>
+        <p id="finallymsg"></p>
+</body>
+</html>
