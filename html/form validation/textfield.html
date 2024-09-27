@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validating text field</title>
+    <script>
+        function validate(){
+            var email=document.myloginform.email.value;
+            var password=document.myloginform.password.value;
+
+            if(email==""){
+                document.myloginform.email.focus(); //this will make the email text field gets focused if the field id empty after clicking register
+                return false;       //if email is empty, then it returns false to onsubmit() and it will just stop the execution of action attribute; only if onsubmit() gets true, then the action attribute gets executed and the page will be redirected.
+            }else if(password==""){
+                document.myloginform.password.focus();
+                return false;
+            }else{
+                alert("Validated");
+                return true; //Only when email and password are present, then this else block executes and true is returned to onsubmit(); once this gets true, the action attribute gets executed and the page redirects to login.jsp
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>User Registration</h2>
+    <form name="myloginform" action="login.jsp" onsubmit="return validate()">
+        <input type="text" name="email" />
+        <input type="password" name="password" />
+        <input type="submit" value="register" /> 
+    </form>
+</body>
+</html>

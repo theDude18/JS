@@ -1,0 +1,1 @@
+document.write("Hello "); document.write("<br/>"); document.write("Karthi "); document.write("mama");

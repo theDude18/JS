@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>onloadprint</title>
+</head>
+<body onload="handleOnLoad()"> <!-- when all the contents in the body tag are executed and completed, this function will get called. -->
+    <script>
+        function handleOnLoad(){
+            window.print(); //this will open the print dialog box and ask to print the entire page(all the contents we have given inside body tag excep script tag)
+        }
+    </script>
+    <b>Printing this entire JS page</b>
+</body>
+</html>

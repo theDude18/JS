@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onclick()</title>
+    <script>
+        function calculate(a){
+            var x=parseInt(document.formCalc.num1.value); //from JS script, we are fetching the html values; this is the syntax for that
+            var y=parseInt(document.formCalc.num2.value);
+            var z=document.formCalc.result; //fetching result text field and assigning it to var z
+            if(a.value=="Add"){
+                z.value=x+y;                //in z(result text field), we are giving the value x+y
+            }else if(a.value=="Sub"){
+                z.value=x-y;
+            }else if(a.value=="Mul"){
+                z.value=x*y;
+            }else if(a.value=="Div"){
+                z.value=x/y;
+            }else if(a.value=="Mod"){
+                z.value=x%y;
+            }
+        }
+    </script>
+</head>
+<body>
+    <form name="formCalc">
+        Number 1:<input type="text" name="num1"/><br/>
+        Number 2:<input type="text" name="num2"/><br/>
+        Result: <input type="text" name="result"/><br/>
+        <input type="button" name="Add" value="Add" onclick="calculate(this)"/>       <!-- 'this' keyword passess the current object/tag alone to the function -->
+        <input type="button" name="Sub" value="Sub" onclick="calculate(this)"/>
+        <input type="button" name="Multiply" value="Mul" onclick="calculate(this)"/>
+        <input type="button" name="Division" value="Div" onclick="calculate(this)"/>
+        <input type="button" name="Modules" value="Mod" onclick="calculate(this)"/>
+    </form>
+</body>
+</html>

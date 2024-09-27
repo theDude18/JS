@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>onmouseover and onmouseout using custom functions</title>
+</head>
+<body>
+    <p onmouseover="handleMouseOverEvent(this)" onmouseout="handleMouseOutEvent(this)">Checking onmouse Events</p>
+    <!-- onmouseover and onmouseout are inbuilt attributes; 'this' keyword given as func arguments is a inbuilt keyword which refers the element/object which is <p> here. So that the element will go to the function and there we can do our functions-->
+    <script>
+        function handleMouseOverEvent(x){  //function name can be anything
+            x.style.color="red";
+            x.style.backgroundColor="yellow";
+            x.innerHTML="MOUSEOVER";
+        }
+
+        function handleMouseOutEvent(y){
+            y.style.color="blue";
+            y.style.backgroundColor="yellow";
+            y.innerHTML="MOUSEOUT";  //fetches the content of innerHTML 
+        }
+    </script>
+</body>
+</html>
