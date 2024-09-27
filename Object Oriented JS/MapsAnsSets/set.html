@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set</title>
+    <script>
+        //Unlike Map, Set contain only values which are unique.
+        let names=new Set();
+        names.add("Vivekananda");
+        names.add("Socrates");
+        names.add("Marcus Aurelis");
+
+        //looping Set
+        for(let name of names){
+            console.log(name);
+        }
+
+        console.log(names.size);
+        console.log(names.has("Socrates"));
+        names.delete("Socrates");
+        console.log(names.has("Socrates"));
+        console.log(names.size);
+
+        //2 other syntax of creating Set
+        //let names=new Set().add("Plato").add("Alexander").add("Buddha");
+        //let names=new Set(["Plato","Alexander","Buddha"]);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

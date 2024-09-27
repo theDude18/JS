@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handling Multiple Promises using Async Await </title>
+    <script>
+        //The another main purpose of async-await is, it helps us to execute multiple Promises in a more effective and more readable way.
+        
+        async function myAsyncFunc() {
+            const promise = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    console.log("Inside myAsyncFunc()(Asynchronous code)");
+                    let error = false;
+                    if (error)
+                        reject("Failed due to Error");
+                    else
+                        resolve("Successful");
+                }, 1000);                     //result will print after 3 seconds as timeout is set to 3000ms
+            });
+            return promise;
+        }
+
+        async function myAsyncFunc2() {         //2nd Promise function
+            const promise = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    console.log("Inside myAsyncFunc2()");
+                    let error = false;
+                    if (error)
+                        reject("Failed due to Error");
+                    else
+                        resolve("myAsyncFunc2() is Successful");
+                }, 1000);                     
+            });
+            return promise;
+        }
+
+        async function executeAsyncFunc() {
+            try {
+                const result1 = await myAsyncFunc();     //executing 1st Promise
+                console.log(result1);
+                const result2 = await myAsyncFunc2();   //executing 2nd Promise
+                console.log(result2);
+            } catch (error) {
+                console.log(error);
+            } finally {
+                console.log("Inside finally block");
+            }
+        }
+
+        executeAsyncFunc();
+
+        //Another use of async-await is, we can execute all the asynchronous function/code at once in a concurrent manner using Promise.all()
+        async function executeAsyncFunc2() {
+            try {
+                const [result1, result2] = await Promise.all([myAsyncFunc(), myAsyncFunc2()]);    //executes all the asynchronous functions we mention inside Promise.all() one by one concurrently.
+                console.log(result1, result2);
+            } catch (error) {
+                console.log(error);
+            } finally {
+                console.log("Inside finally block");
+            }
+        }
+
+        executeAsyncFunc2();
+
+        //Note:If u get confused with the output, call the 2 functions one at a time.
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

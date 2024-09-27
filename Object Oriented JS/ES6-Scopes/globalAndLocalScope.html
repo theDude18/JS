@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global and Local Scope</title>
+    <script>
+        //Global scope will be available to the entire lines of code including function and block level
+        //2 local scopes are there: 1.Function and 2.Block 
+        //Function scope will be available within the function
+        //Block scope will be available only within the block(block means if stmts)
+
+        var x=1;
+        let y=2;
+        const z=3;
+
+        function myFunc(){
+            let y=4;         //let 'y' is redeclarable bcoz this is within the function scope
+
+            if(true){
+                const z=6;
+                console.log(y);
+                console.log(z);
+            }
+            console.log(z);      //this will print 3(global variable's value), as the z=6 scope will end within the if stmt
+        }                        //All the variables declared within this function and if stmt(block), will end here;
+
+        myFunc();
+
+        console.log(x);
+        console.log(y);
+        console.log(z);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

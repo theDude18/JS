@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Destructuring</title>
+    <script>
+        //Function Destructuring is used when we want to pass dynamic parameters in function
+
+        //this is the way of passing multiple parameters without using destructuring
+        function addNumbers(numbers){
+            return console.log(numbers.num1+numbers.num2+numbers.num3);
+        }
+
+        addNumbers({num1:10,num2:20,num3:30});
+
+        //Passing multiple values using destructuring
+        function multiplyNumbers({num1,num2,num3}){
+            return console.log(num1*num2*num3);
+        }
+
+        multiplyNumbers({num1:2,num2:2,num3:2});
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

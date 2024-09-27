@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions as parameters</title>
+    <script>
+        var arr=[30,1,52,22,87];
+        //arr.sort(); //this sort() will not sort our array as this method will convert elements of array into String before sorting
+        arr.sort(function(num1,num2){ //the function given inside sort() is Expression type function
+            return num1-num2;         //logic is not important here; just know that we can pass a function as a argument in another function
+        });  
+        document.write(arr+"<br/>");
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

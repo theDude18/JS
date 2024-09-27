@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Await</title>
+    <script>
+        //The main purpose of async-await is the simple easy to understand and effective readability of the asynchronous code(Promise). Also It helps us to execute the Promises in a more effective and more readable way.
+
+        async function myAsyncFunc() {                //async keyword before this method is not mandatory because inside the method, we are using Promise and it will make this function asynchronous automatically.
+            const promise = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    console.log("Inside myAsyncFunc()(Asynchronous code)");
+                    let error = false;
+                    if (error)
+                        reject("Failed due to Error");
+                    else
+                        resolve("Successful");
+                }, 3000);                     //result will print after 3 seconds as timeout is set to 3000ms
+            });
+            return promise;
+        }
+
+        //Instead of executing the asynchronous code using then(),catch() and finally() like we used in promise.html file, we can define a method like this to execute the asynchronous function.
+        async function executeAsyncFunc() {            //async keyword is mandatory here. Bcoz, only with async, await keyword can be used. This is bcoz, we are returning a Promise here in this function, so this function has to be asynchronous.
+            try {
+                const result = await myAsyncFunc();     //since you have given await keyword before myAsyncFunc() here, the execution stops here and myAsyncFunc() gets executed completely and only after it returns resolve, the execution will go to the next line
+                console.log(result);
+            } catch (error) {
+                console.log(error);
+            } finally {
+                console.log("Inside finally block");
+            }
+        }
+
+        executeAsyncFunc();         //this will execute the Promise.
+
+        /* 
+        myAsyncFunc().then((success)=>console.log(success)).catch((error)=>console.log(error)).finally(()=>console.log("Inside finally block")); 
+
+        Note: This above way of executing the Promise is not a good readable way. So that only asyn-await was introduced to make the execution and handling of Promises more simple and effective.
+        */
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
